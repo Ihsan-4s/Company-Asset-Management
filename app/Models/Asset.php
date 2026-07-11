@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+#[Fillable(['category_id', 'name', 'asset_code', 'description', 'status', 'photo_path'])]
 
 class Asset extends Model
 {
-    use HasFactory, SoftDeletes;
-    #[Fillable(['category_id', 'name', 'asset_code', 'description', 'status', 'photo_path'])]
+    use HasFactory;
 
     public function category(): BelongsTo
     {

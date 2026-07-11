@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnUpdate()->restrictOnDelete();
             $table->string('name');
-            $table->string('asset_code');
+            $table->string('asset_code')->unique();
             $table->text('description')->nullable();
             $table->enum('status', ['available', 'borrowed', 'maintenance'])->default('available');
             $table->string('photo_path')->nullable();

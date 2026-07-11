@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('borrowed_at')->nullable();
             $table->timestamp('return_requested_at')->nullable();
             $table->timestamp('returned_at')->nullable();
-            $table->foreignId('approved_by')->constrained('users')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('approved_by')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->text('admin_notes')->nullable();
             $table->timestamps();
         });
